@@ -1,0 +1,24 @@
+Title: MathNum Calculator
+
+short Dis: Simplify complex calculations with our intuitive calculator app!
+
+Long Dis:
+
+One of the standout features of our app is its user-friendly design, which ensures that even complex calculations are easy to input and understand. Whether you're performing simple calculations or tackling more challenging mathematical problems, our app provides a smooth and seamless experience every time.
+
+Make complex calculations simple with our intuitive calculator app! Whether you're crunching numbers for work, school, or everyday tasks, our user-friendly interface and advanced features make math easy. From basic arithmetic to scientific functions, our calculator has you covered. Download now and streamline your calculations with ease!
+
+Highly Flexible: Designed to adapt to any screen size, our app offers a flexible user experience on any device.
+
+Precision: Get precise results with up to 10 decimal places, ensuring accuracy for even the most complex calculations.
+
+Regular Updates: We regularly update our app with new designs and features, keeping it in sync with the latest Android versions.
+
+Robust Error Handling: Our app employs robust error-handling methods, minimizing the risk of failure during usage.
+
+
+
+Disclaimer:
+This Calculator is not associated with any trademark company.
+This Calculator application is NOT affiliated or endorsed by any trademark company
+

@@ -3,4 +3,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="background">#E5E5E5</color>
+    <color name="brand_color">#427AA1</color>
+
+
+    <color name="text_color">#002A3C</color>
+    <color name="Operations_color">#427AA1</color>
+    <color name="other_color">#A14242</color>
+
 </resources>

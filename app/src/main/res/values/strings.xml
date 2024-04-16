@@ -1,3 +1,127 @@
 <resources>
     <string name="app_name">MathNum Calculator</string>
+
+    <string name="shiftMode" translatable="false">1</string>
+    <string name="deg" translatable="false">Deg</string>
+    <string name="x" translatable="false">x!</string>
+
+    <string name="calculate_label" translatable="false">000</string>
+    <string name="result_label" translatable="false">0</string>
+
+    <string name="DivideButton" translatable="false">÷</string>
+    <string name="MultiplyButton" translatable="false">×</string>
+    <string name="SubtractButton" translatable="false">-</string>
+    <string name="AddButton" translatable="false">+</string>
+    <string name="NegativButton" translatable="false">±</string>
+    <string name="commaButton">.</string>
+    <string name="CalculateButton" translatable="false">=</string>
+    <string name="BackspaceButton" translatable="false">⌫</string>
+    <string name="ClearAllButton" translatable="false">C</string>
+    <string name="ClearResultLabel" translatable="false">CE</string>
+    <string name="OneButton" translatable="false">1</string>
+    <string name="TwoButton" translatable="false">2</string>
+    <string name="ThreeButton" translatable="false">3</string>
+    <string name="FourButton" translatable="false">4</string>
+    <string name="FiveButton" translatable="false">5</string>
+    <string name="SixButton" translatable="false">6</string>
+    <string name="SevenButton" translatable="false">7</string>
+    <string name="EightButton" translatable="false">8</string>
+    <string name="NineButton" translatable="false">9</string>
+    <string name="ZeroButton" translatable="false">0</string>
+    <string name="history_text" translatable="false" />
+    <string name="clipOn" translatable="false">(</string>
+    <string name="clipOff" translatable="false">)</string>
+    <string name="power" translatable="false">x^</string>
+    <string name="root" translatable="false">√x</string>
+    <string name="sin" translatable="false">sin(x)</string>
+    <string name="cos" translatable="false">cos(x)</string>
+    <string name="tan" translatable="false">tan(x)</string>
+    <string name="sinh" translatable="false">sinh(x)</string>
+    <string name="cosh" translatable="false">cosh(x)</string>
+    <string name="tanh" translatable="false">tanh(x)</string>
+    <string name="asin" translatable="false">sin⁻¹(x)</string>
+    <string name="acos" translatable="false">cos⁻¹(x)</string>
+    <string name="atan" translatable="false">tan⁻¹(x)</string>
+    <string name="asinh" translatable="false">sinh⁻¹(x)</string>
+    <string name="acosh" translatable="false">cosh⁻¹(x)</string>
+    <string name="atanh" translatable="false">tanh⁻¹(x)</string>
+    <string name="log" translatable="false">log(x)</string>
+    <string name="log2x" translatable="false">log₂(x)</string>
+    <string name="logxx" translatable="false">logₓ(x)</string>
+    <string name="ln" translatable="false">ln(x)</string>
+    <string name="е" translatable="false">е</string>
+    <string name="e" translatable="false">e±</string>
+    <string name="pi" translatable="false">π</string>
+    <string name="three_root" translatable="false">³√x</string>
+    <string name="half" translatable="false">½</string>
+    <string name="third" translatable="false">⅓</string>
+    <string name="quarter" translatable="false">¼</string>
+    <string name="piWord">PI</string>
+
+    <string name="hyperbolicSine">hyperbolic sine function</string>
+    <string name="scientificMode">Scientific mode</string>
+    <string name="changeMode">Switch mode</string>
+    <string name="mode">Mode</string>
+    <string name="degreeRadians">Degree (Deg) / Radian (Rad)</string>
+    <string name="emptyClipboard">Empty clipboard</string>
+    <string name="pasteNumber">Insert value</string>
+    <string name="copyNumber">Copy value</string>
+    <string name="inverseSine">inverse sine function</string>
+    <string name="inverseCosine">inverse cosine function</string>
+    <string name="inverseTangent">inverse tangent function</string>
+    <string name="sine">Sine</string>
+    <string name="cosine">Cosine</string>
+    <string name="tangent">Tangent</string>
+    <string name="manuallyNotation">Manual notation</string>
+    <string name="hyperbolicCosine">hyperbolic cosine function</string>
+
+    <string name="buttonIsDisabled">This button is disabled in the current mode.</string>
+    <string name="clipboardCleared">Clipboard cleared…</string>
+    <string name="savedvalue">Value saved…</string>
+    <string name="clipboardIsEmpty">Clipboard is empty…</string>
+    <string name="pastedClipboard">Clipboard pasted…</string>
+    <string name="invalidInput">Invalid input…</string>
+
+
+    <string name="errorMessage1">Value too large</string>
+    <string name="errorMessage2">Syntax error</string>
+    <string name="errorMessage3">Division by zero</string>
+    <string name="errorMessage4">Real numbers only</string>
+    <string name="errorMessage5">Unknown operator</string>
+    <string name="errorMessage6">Domain error</string>
+    <string name="errorMessage7">Invalid number format</string>
+    <string name="errorMessage8">Undefined</string>
+    <string name="errorMessage9">Invalid value</string>
+    <string name="errorMessage10">Invalid input</string>
+    <string name="errorMessage11">Infinity</string>
+    <string name="errorMessage12">For input string</string>
+    <string name="errorMessage13">No division</string>
+    <string name="errorMessage14">Unknown function</string>
+    <string name="errorMessage15">Invalid argument</string>
+    <string name="errorMessage16">Invalid base</string>
+    <string name="errorMessage17">Invalid base or argument</string>
+
+
+    <string name="eulersNumber">Euler\'s number (2.718..)</string>
+    <string name="generalLogarithmFunction">general logarithm function</string>
+    <string name="specialLogarithmFunction">special logarithm function</string>
+    <string name="manualLogarithmFunction">manual logarithm function</string>
+    <string name="naturalLogarithmFunction">natural logarithm function</string>
+
+    <string name="parenthesisOn">Open parenthesis</string>
+    <string name="parenthesisOff">Close parenthesis</string>
+    <string name="faculty">Factorial</string>
+    <string name="exponential">Exponent</string>
+    <string name="squareroot">Square root</string>
+    <string name="clearResult">Clear result</string>
+    <string name="clearAll">Clear all</string>
+    <string name="backspace">Backspace</string>
+    <string name="divide">Division</string>
+    <string name="multiply">Multiplication</string>
+    <string name="subtract">Subtraction</string>
+    <string name="add">Addition</string>
+    <string name="negate">Negate</string>
+    <string name="comma">Comma</string>
+    <string name="calculate">Calculate</string>
+
 </resources>

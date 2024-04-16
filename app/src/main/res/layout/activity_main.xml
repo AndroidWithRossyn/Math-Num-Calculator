@@ -1,13 +1,927 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:background="@color/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/actionBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/scientificButton"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginStart="5dp"
+                android:background="@android:color/transparent"
+                android:foreground="@drawable/science_light"
+                android:tag="@string/scientificMode"
+                android:tooltipText="@string/scientificMode" />
+
+            <ImageButton
+                android:id="@+id/shift"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginStart="5dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/shift"
+                android:tag="@string/changeMode"
+                android:tooltipText="@string/changeMode" />
+
+            <TextView
+                android:id="@+id/shiftMode_text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:gravity="center"
+                android:paddingHorizontal="5dp"
+                android:text="@string/shiftMode"
+                android:textAlignment="center"
+                android:textColor="@color/other_color"
+                android:textSize="@dimen/_15ssp"
+                android:tooltipText="@string/mode" />
+
+            <TextView
+                android:id="@+id/functionMode_text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_5sdp"
+                android:text="@string/deg"
+                android:textAlignment="center"
+                android:textColor="@color/other_color"
+                android:textSize="@dimen/_15ssp"
+                android:tooltipText="@string/degreeRadians" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <HorizontalScrollView
+            android:id="@+id/result_scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/result_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="end|center_vertical"
+                    android:paddingStart="10sp"
+                    android:paddingEnd="10sp"
+                    android:letterSpacing=".05"
+                    android:singleLine="true"
+                    android:text="@string/result_label"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/_25ssp" />
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <HorizontalScrollView
+            android:id="@+id/calculate_scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:gravity="end"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/calculate_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:ellipsize="none"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:text="@string/calculate_label"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/_17ssp" />
+            </LinearLayout>
+        </HorizontalScrollView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/button_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/_2sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_weight="7"
+        android:orientation="vertical">
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:id="@+id/scientificRow11"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <Button
+                android:id="@+id/asinus"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:tag="sin"
+                android:text="@string/asin"
+                android:textAlignment="center"
+                android:textColor="@color/Operations_color"
+                android:textSize="@dimen/_15ssp"
+                android:tooltipText="@string/inverseSine" />
+
+            <Button
+                android:id="@+id/acosinus"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:tag="cos"
+                android:text="@string/acos"
+                android:textAlignment="center"
+                android:textColor="@color/Operations_color"
+                android:textSize="@dimen/_15ssp"
+                android:tooltipText="@string/inverseCosine" />
+
+            <Button
+                android:id="@+id/atangens"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:tag="tan"
+                android:text="@string/atan"
+                android:textAlignment="center"
+                android:textColor="@color/Operations_color"
+                android:textSize="@dimen/_15ssp"
+
+                android:tooltipText="@string/inverseTangent" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/scientificRow21"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <Button
+                android:id="@+id/sinus"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:tag="sin"
+
+                android:text="@string/sin"
+                android:textAlignment="center"
+                android:textColor="@color/Operations_color"
+                android:textSize="@dimen/_15ssp"
+                android:tooltipText="@string/sine" />
+
+            <Button
+                android:id="@+id/cosinus"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.1"
+                android:tag="cos"
+
+                android:text="@string/cos"
+                android:textAlignment="center"
+                android:textColor="@color/Operations_color"
+                android:textSize="@dimen/_15ssp"
+                android:tooltipText="@string/cosine" />
+
+            <Button
+                android:id="@+id/tangens"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:tag="tan"
+
+                android:text="@string/tan"
+                android:textAlignment="center"
+                android:textColor="@color/Operations_color"
+                android:textSize="@dimen/_15ssp"
+                android:tooltipText="@string/tangent" />
+
+            <Button
+                android:id="@+id/е"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="eulersnumber"
+
+                android:text="@string/е"
+                android:textAlignment="center"
+                android:textColor="@color/Operations_color"
+                android:textSize="@dimen/_15ssp"
+                android:tooltipText="@string/eulersNumber" />
+
+            <Button
+                android:id="@+id/pi"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:tag="pi"
+
+                android:text="@string/pi"
+                android:textAlignment="center"
+                android:textColor="@color/Operations_color"
+                android:textSize="@dimen/_15ssp"
+                android:tooltipText="@string/piWord" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/scientificRow12"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/sinush"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:tag="sin"
+
+                android:text="@string/sinh"
+                android:textAlignment="center"
+                android:textColor="@color/Operations_color"
+                android:textSize="@dimen/_15ssp"
+                android:tooltipText="@string/hyperbolicSine" />
+
+            <Button
+                android:id="@+id/cosinush"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.1"
+                android:tag="cos"
+
+                android:text="@string/cosh"
+                android:textAlignment="center"
+                android:textColor="@color/Operations_color"
+                android:textSize="@dimen/_15ssp"
+                android:tooltipText="@string/hyperbolicCosine" />
+
+            <Button
+                android:id="@+id/tangensh"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:tag="tan"
+
+                android:text="@string/tanh"
+                android:textAlignment="center"
+                android:textColor="@color/Operations_color"
+                android:textSize="@dimen/_15ssp"
+                android:tooltipText="hyperbolische Tangensfunktion" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/scientificRow22"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/asinush"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:tag="sin"
+
+                android:text="@string/asinh"
+                android:textAlignment="center"
+                android:textColor="@color/Operations_color"
+                android:textSize="@dimen/_15ssp"
+                android:tooltipText="inverse hyperbolische Sinusfunktion" />
+
+            <Button
+                android:id="@+id/acosinush"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.1"
+                android:tag="cos"
+
+                android:text="@string/acosh"
+                android:textAlignment="center"
+                android:textColor="@color/Operations_color"
+                android:textSize="@dimen/_15ssp"
+                android:tooltipText="inverse hyperbolische Cosinusfunktion" />
+
+            <Button
+                android:id="@+id/atangensh"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:tag="tan"
+
+                android:text="@string/atanh"
+                android:textAlignment="center"
+                android:textColor="@color/Operations_color"
+                android:textSize="@dimen/_15ssp"
+                android:tooltipText="inverse hyperbolische Tangensfunktion" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/scientificRow13"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/log"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                android:tag="sin"
+                android:text="@string/log"
+
+                android:textAlignment="center"
+                android:textColor="@color/Operations_color"
+                android:textSize="@dimen/_15ssp"
+                android:tooltipText="@string/generalLogarithmFunction" />
+
+            <Button
+                android:id="@+id/log2x"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                android:tag="cos"
+
+                android:text="@string/log2x"
+                android:textAlignment="center"
+                android:textColor="@color/Operations_color"
+                android:textSize="@dimen/_15ssp"
+                android:tooltipText="@string/specialLogarithmFunction" />
+
+            <Button
+                android:id="@+id/logxx"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                android:tag="tan"
+
+                android:text="@string/logxx"
+                android:textAlignment="center"
+                android:textColor="@color/Operations_color"
+                android:textSize="@dimen/_15ssp"
+                android:tooltipText="@string/manualLogarithmFunction" />
+
+            <Button
+                android:id="@+id/ln"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                android:tag="tan"
+
+                android:text="@string/ln"
+                android:textAlignment="center"
+                android:textColor="@color/Operations_color"
+                android:textSize="@dimen/_15ssp"
+                android:tooltipText="@string/naturalLogarithmFunction" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/scientificRow23"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/e"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:tag="e"
+
+                android:text="@string/e"
+                android:textAlignment="center"
+                android:textColor="@color/Operations_color"
+                android:textSize="@dimen/_15ssp"
+                android:tooltipText="@string/manuallyNotation" />
+
+            <Button
+                android:id="@+id/half"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="2"
+                android:tag="tan"
+
+                android:text="@string/half"
+                android:textAlignment="center"
+                android:textColor="@color/Operations_color"
+                android:textSize="@dimen/_15ssp"
+                android:tooltipText="Hälfte (0,5)" />
+
+            <Button
+                android:id="@+id/third"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:tag="tan"
+
+                android:text="@string/third"
+                android:textAlignment="center"
+                android:textColor="@color/Operations_color"
+                android:textSize="@dimen/_15ssp"
+                android:tooltipText="Drittel (0,333)" />
+
+            <Button
+                android:id="@+id/quarter"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="2"
+                android:tag="tan"
+
+                android:text="@string/quarter"
+                android:textAlignment="center"
+                android:textColor="@color/Operations_color"
+                android:textSize="@dimen/_15ssp"
+                android:tooltipText="Viertel (0,25)" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/scientificRow3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:weightSum="6">
+
+            <Button
+                android:id="@+id/clipOn"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="("
+                android:text="@string/clipOn"
+                android:textAlignment="center"
+                android:textColor="@color/Operations_color"
+                android:textSize="@dimen/_15ssp"
+                android:tooltipText="@string/parenthesisOn" />
+
+            <Button
+                android:id="@+id/clipOff"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag=")"
+
+                android:text="@string/clipOff"
+                android:textAlignment="center"
+                android:textColor="@color/Operations_color"
+                android:textSize="@dimen/_15ssp"
+                android:tooltipText="@string/parenthesisOff" />
+
+            <Button
+                android:id="@+id/faculty"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="!x"
+
+                android:text="@string/x"
+                android:textAlignment="center"
+                android:textColor="@color/Operations_color"
+                android:textSize="@dimen/_15ssp"
+                android:tooltipText="@string/faculty" />
+
+            <Button
+                android:id="@+id/power"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="^"
+
+                android:text="@string/power"
+                android:textAlignment="center"
+                android:textColor="@color/Operations_color"
+                android:textSize="@dimen/_15ssp"
+                android:tooltipText="@string/exponential" />
+
+            <Button
+                android:id="@+id/root"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="^"
+                android:text="@string/root"
+                android:textAlignment="center"
+                android:textColor="@color/Operations_color"
+                android:textSize="@dimen/_15ssp"
+                android:tooltipText="@string/squareroot" />
+
+            <Button
+                android:id="@+id/thirdRoot"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="thirdroot"
+                android:text="@string/three_root"
+                android:textAlignment="center"
+                android:textColor="@color/Operations_color"
+                android:textSize="@dimen/_15ssp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            android:gravity="center_vertical">
+
+            <Button
+                android:id="@+id/clearresult"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="CE"
+                android:text="@string/ClearResultLabel"
+                android:textAlignment="center"
+                android:textColor="@color/other_color"
+                android:textSize="@dimen/_17ssp"
+                android:tooltipText="@string/clearResult" />
+
+            <Button
+                android:id="@+id/clearall"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:layout_weight="1"
+                android:tag="C"
+
+                android:text="@string/ClearAllButton"
+                android:textAlignment="center"
+                android:textColor="@color/other_color"
+                android:textSize="@dimen/_17ssp"
+                android:tooltipText="@string/clearAll" />
+
+            <Button
+                android:id="@+id/backspace"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="⌫"
+
+                android:text="@string/BackspaceButton"
+                android:textAlignment="center"
+                android:textColor="@color/other_color"
+                android:textSize="@dimen/_17ssp"
+                android:tooltipText="@string/backspace" />
+
+            <Button
+                android:id="@+id/divide"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="÷"
+
+                android:text="@string/DivideButton"
+                android:textAlignment="center"
+                android:textColor="@color/Operations_color"
+                android:textSize="@dimen/_17ssp"
+                android:tooltipText="@string/divide" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            android:gravity="center_vertical">
+
+            <Button
+                android:id="@+id/seven"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="7"
+
+                android:text="@string/SevenButton"
+                android:textAlignment="center"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/_20ssp" />
+
+            <Button
+                android:id="@+id/eight"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="8"
+
+                android:text="@string/EightButton"
+                android:textAlignment="center"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/_20ssp" />
+
+            <Button
+                android:id="@+id/nine"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="9"
+
+                android:text="@string/NineButton"
+                android:textAlignment="center"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/_20ssp" />
+
+            <Button
+                android:id="@+id/multiply"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="×"
+                android:text="@string/MultiplyButton"
+
+                android:textAlignment="center"
+                android:textColor="@color/Operations_color"
+                android:textSize="@dimen/_17ssp"
+                android:tooltipText="@string/multiply" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/four"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="4"
+
+                android:text="@string/FourButton"
+                android:textAlignment="center"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/_20ssp" />
+
+            <Button
+                android:id="@+id/five"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="5"
+
+                android:text="@string/FiveButton"
+                android:textAlignment="center"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/_20ssp" />
+
+            <Button
+                android:id="@+id/six"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="6"
+
+                android:text="@string/SixButton"
+                android:textAlignment="center"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/_20ssp" />
+
+            <Button
+                android:id="@+id/subtract"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="-"
+
+                android:text="@string/SubtractButton"
+                android:textAlignment="center"
+                android:textColor="@color/Operations_color"
+                android:textSize="@dimen/_17ssp"
+                android:tooltipText="@string/subtract" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            android:gravity="center_vertical">
+
+            <Button
+                android:id="@+id/one"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="1"
+
+                android:text="@string/OneButton"
+                android:textAlignment="center"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/_20ssp" />
+
+            <Button
+                android:id="@+id/two"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="2"
+
+                android:text="@string/TwoButton"
+                android:textAlignment="center"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/_20ssp" />
+
+            <Button
+                android:id="@+id/three"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="3"
+
+                android:text="@string/ThreeButton"
+                android:textAlignment="center"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/_20ssp" />
+
+            <Button
+                android:id="@+id/add"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="+"
+
+                android:text="@string/AddButton"
+                android:textAlignment="center"
+                android:textColor="@color/Operations_color"
+                android:textSize="@dimen/_17ssp"
+                android:tooltipText="@string/add" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
+
+            <Button
+                android:id="@+id/negative"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="+-"
+                android:text="@string/NegativButton"
+                android:textAlignment="center"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/_20ssp"
+                android:tooltipText="@string/negate" />
+
+            <Button
+                android:id="@+id/zero"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="0"
+                android:text="@string/ZeroButton"
+                android:textAlignment="center"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/_20ssp" />
+
+            <Button
+                android:id="@+id/comma"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:tag="."
+                android:text="@string/commaButton"
+                android:textAlignment="center"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/_20ssp"
+                android:tooltipText="@string/comma"
+                tools:ignore="TooManyViews" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight=".1" />
+
+            <Button
+                android:id="@+id/calculate"
+                android:layout_width="0dp"
+                android:layout_weight=".7"
+                android:layout_height="@dimen/_45sdp"
+                android:background="@drawable/equal_button"
+                android:backgroundTint="@color/Operations_color"
+                android:tag="="
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:text="@string/CalculateButton"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_17ssp"
+                android:tooltipText="@string/calculate" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight=".1" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
