@@ -1,7 +1,5 @@
 package com.hayat.addingcalc.mathnum;
 
-
-
 import android.content.Context;
 import android.util.Log;
 import android.widget.TextView;
@@ -18,12 +16,12 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-
-
 public class DataManager {
     private MainActivity mainActivity;
     private static final String JSON_FILE = "settings.json";
     static final String HISTORY_FILE = "history.json";
+
+    private final String TAG ="DataManger";
     
     public DataManager(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
@@ -189,7 +187,7 @@ public class DataManager {
             initializeSetting("report", "", applicationContext);
             initializeSetting("lastActivity", "Main", applicationContext);
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+              Log.d(TAG, "Exception : " + e.getMessage());
         }
     }
 
@@ -270,7 +268,7 @@ public class DataManager {
                 try {
                     calculatelabel.setText(calculateText.getString("value"));
                 } catch (JSONException e) {
-                    throw new RuntimeException(e);
+                      Log.d(TAG, "Exception : " + e.getMessage());
                 }
 
                 try {
@@ -279,13 +277,13 @@ public class DataManager {
                         try {
                             resultlabel.setText(resultText.getString("value"));
                         } catch (JSONException e) {
-                            throw new RuntimeException(e);
+                              Log.d(TAG, "Exception : " + e.getMessage());
                         }
                     } else {
                         resultlabel.setText("0");
                     }
                 } catch (JSONException e) {
-                    throw new RuntimeException(e);
+                      Log.d(TAG, "Exception : " + e.getMessage());
                 }
             }
         }

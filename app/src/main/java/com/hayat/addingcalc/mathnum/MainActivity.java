@@ -49,6 +49,7 @@ import java.util.regex.Pattern;
 public class MainActivity extends AppCompatActivity {
 
     private DataManager dataManager;
+    private final String TAG = "MainActivity";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,8 +73,8 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             dataManager.loadNumbers();
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
+        } catch (Exception e) {
+            Log.d(TAG, "onCreate: " + e.getMessage());
         }
 
         formatResultTextAfterType();
@@ -198,11 +199,11 @@ public class MainActivity extends AppCompatActivity {
             try {
                 setResultText(CalculatorEngine.calculate(balanceParentheses(getCalculateText())));
                 function_mode_text.setText(dataManager.getJSONSettingsData("functionMode", getApplicationContext()).getString("value"));
-            } catch (JSONException e) {
-                throw new RuntimeException(e);
+            } catch (Exception e) {
+                Log.d(TAG, "Exception : " + e.getMessage());
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
     }
 
@@ -232,7 +233,7 @@ public class MainActivity extends AppCompatActivity {
                 findViewById(R.id.calculate_scrollview).setLayoutParams(layoutParams);
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
     }
 
@@ -249,7 +250,7 @@ public class MainActivity extends AppCompatActivity {
             shiftButtonAction();
 
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
 
     }
@@ -308,7 +309,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
     }
 
@@ -335,7 +336,7 @@ public class MainActivity extends AppCompatActivity {
             try {
                 function_mode_text.setText(dataManager.getJSONSettingsData("functionMode", getApplicationContext()).getString("value"));
             } catch (JSONException e) {
-                throw new RuntimeException(e);
+                Log.d(TAG, "Exception : " + e.getMessage());
             }
         }
 
@@ -385,7 +386,7 @@ public class MainActivity extends AppCompatActivity {
                 layoutParams.weight = 1;
                 findViewById(R.id.calculate_scrollview).setLayoutParams(layoutParams);
             } catch (JSONException e) {
-                throw new RuntimeException(e);
+                Log.d(TAG, "Exception : " + e.getMessage());
             }
         }
         shiftButtonAction();
@@ -408,7 +409,7 @@ public class MainActivity extends AppCompatActivity {
                         scrollToBottom(findViewById(R.id.result_scrollview));
                     }
                 } catch (JSONException e) {
-                    throw new RuntimeException(e);
+                    Log.d(TAG, "Exception : " + e.getMessage());
                 }
 
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) findViewById(R.id.calculate_scrollview).getLayoutParams();
@@ -427,7 +428,7 @@ public class MainActivity extends AppCompatActivity {
                     Calculate();
                     dataManager.saveNumbers(getApplicationContext());
                 } catch (Exception e) {
-                    throw new RuntimeException(e);
+                    Log.d(TAG, "Exception : " + e.getMessage());
                 }
             });
         }
@@ -452,7 +453,7 @@ public class MainActivity extends AppCompatActivity {
                         scrollToBottom(findViewById(R.id.result_scrollview));
                     }
                 } catch (JSONException e) {
-                    throw new RuntimeException(e);
+                    Log.d(TAG, "Exception : " + e.getMessage());
                 }
 
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) findViewById(R.id.calculate_scrollview).getLayoutParams();
@@ -480,7 +481,7 @@ public class MainActivity extends AppCompatActivity {
                         scrollToBottom(findViewById(R.id.result_scrollview));
                     }
                 } catch (JSONException e) {
-                    throw new RuntimeException(e);
+                    Log.d(TAG, "Exception : " + e.getMessage());
                 }
 
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) findViewById(R.id.calculate_scrollview).getLayoutParams();
@@ -525,7 +526,7 @@ public class MainActivity extends AppCompatActivity {
                         scrollToBottom(findViewById(R.id.result_scrollview));
                     }
                 } catch (JSONException e) {
-                    throw new RuntimeException(e);
+                    Log.d(TAG, "Exception : " + e.getMessage());
                 }
 
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) findViewById(R.id.calculate_scrollview).getLayoutParams();
@@ -552,7 +553,7 @@ public class MainActivity extends AppCompatActivity {
                         scrollToBottom(findViewById(R.id.result_scrollview));
                     }
                 } catch (JSONException e) {
-                    throw new RuntimeException(e);
+                    Log.d(TAG, "Exception : " + e.getMessage());
                 }
             });
         }
@@ -574,7 +575,7 @@ public class MainActivity extends AppCompatActivity {
                         scrollToBottom(findViewById(R.id.result_scrollview));
                     }
                 } catch (JSONException e) {
-                    throw new RuntimeException(e);
+                    Log.d(TAG, "Exception : " + e.getMessage());
                 }
             });
         }
@@ -653,7 +654,7 @@ public class MainActivity extends AppCompatActivity {
                         scrollToBottom(findViewById(R.id.result_scrollview));
                     }
                 } catch (JSONException e) {
-                    throw new RuntimeException(e);
+                    Log.d(TAG, "Exception : " + e.getMessage());
                 }
 
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) findViewById(R.id.calculate_scrollview).getLayoutParams();
@@ -680,7 +681,7 @@ public class MainActivity extends AppCompatActivity {
                         scrollToBottom(findViewById(R.id.result_scrollview));
                     }
                 } catch (JSONException e) {
-                    throw new RuntimeException(e);
+                    Log.d(TAG, "Exception : " + e.getMessage());
                 }
             });
         }
@@ -693,7 +694,7 @@ public class MainActivity extends AppCompatActivity {
                 dataManager.saveToJSONSettings("pressedCalculate", false, getApplicationContext());
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
     }
 
@@ -727,7 +728,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
 
         formatResultTextAfterType();
@@ -759,7 +760,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
         formatResultTextAfterType();
     }
@@ -791,7 +792,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
         formatResultTextAfterType();
     }
@@ -823,7 +824,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
         formatResultTextAfterType();
     }
@@ -858,7 +859,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
         formatResultTextAfterType();
     }
@@ -889,7 +890,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
         formatResultTextAfterType();
     }
@@ -921,7 +922,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
         formatResultTextAfterType();
     }
@@ -956,7 +957,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
         formatResultTextAfterType();
     }
@@ -991,7 +992,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
         formatResultTextAfterType();
     }
@@ -1026,7 +1027,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
         formatResultTextAfterType();
     }
@@ -1061,7 +1062,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
         formatResultTextAfterType();
     }
@@ -1096,7 +1097,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
         formatResultTextAfterType();
     }
@@ -1135,7 +1136,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
         formatResultTextAfterType();
     }
@@ -1170,7 +1171,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
         formatResultTextAfterType();
     }
@@ -1209,7 +1210,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
         formatResultTextAfterType();
     }
@@ -1241,7 +1242,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
         formatResultTextAfterType();
     }
@@ -1285,7 +1286,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
 
         // Format the result text after typing
@@ -1337,7 +1338,7 @@ public class MainActivity extends AppCompatActivity {
                 setResultText(CalculatorEngine.calculate(balanceParentheses(getCalculateText())));
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
 
         // Format the result text after typing
@@ -1390,7 +1391,7 @@ public class MainActivity extends AppCompatActivity {
                 setResultText(CalculatorEngine.calculate(balanceParentheses(getCalculateText())));
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
 
         // Format the result text after typing
@@ -1444,7 +1445,7 @@ public class MainActivity extends AppCompatActivity {
                 setResultText(CalculatorEngine.calculate(balanceParentheses(getCalculateText())));
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
 
         formatResultTextAfterType();
@@ -1515,7 +1516,7 @@ public class MainActivity extends AppCompatActivity {
                 setResultText(CalculatorEngine.calculate(balanceParentheses(getCalculateText())));
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
 
         formatResultTextAfterType();
@@ -1564,7 +1565,7 @@ public class MainActivity extends AppCompatActivity {
                 setResultText(CalculatorEngine.calculate(balanceParentheses(getCalculateText())));
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
 
         formatResultTextAfterType();
@@ -1611,7 +1612,7 @@ public class MainActivity extends AppCompatActivity {
                 setResultText(CalculatorEngine.calculate(balanceParentheses(getCalculateText())));
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
 
         formatResultTextAfterType();
@@ -1649,7 +1650,7 @@ public class MainActivity extends AppCompatActivity {
                 setResultText(CalculatorEngine.calculate(balanceParentheses(getCalculateText())));
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
 
         formatResultTextAfterType();
@@ -1687,7 +1688,7 @@ public class MainActivity extends AppCompatActivity {
                 setResultText(CalculatorEngine.calculate(balanceParentheses(getCalculateText())));
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
 
         formatResultTextAfterType();
@@ -1730,7 +1731,7 @@ public class MainActivity extends AppCompatActivity {
                 setResultText(CalculatorEngine.calculate(balanceParentheses(getCalculateText())));
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
 
         formatResultTextAfterType();
@@ -1777,7 +1778,7 @@ public class MainActivity extends AppCompatActivity {
                 setResultText(CalculatorEngine.calculate(balanceParentheses(getCalculateText())));
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
 
         formatResultTextAfterType();
@@ -1821,7 +1822,7 @@ public class MainActivity extends AppCompatActivity {
                 setResultText(CalculatorEngine.calculate(balanceParentheses(getCalculateText())));
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
 
         formatResultTextAfterType();
@@ -1874,15 +1875,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @Override
     protected void onDestroy() {
-        super.onDestroy();
-        try {
+     /*   try {
             if (dataManager.getJSONSettingsData("disablePatchNotesTemporary", getApplicationContext()).getString("value").equals("true")) {
                 dataManager.saveToJSONSettings("disablePatchNotesTemporary", false, getApplicationContext());
             }
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
+        } catch (Exception e) {
+            Log.d(TAG, "Exception : " + e.getMessage());
+        }*/
+        super.onDestroy();
     }
 
     @Override
@@ -1959,7 +1961,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
 
         setCalculateText(replacePiWithSymbolInString(getCalculateText()));
@@ -1968,7 +1970,7 @@ public class MainActivity extends AppCompatActivity {
                 setResultText(CalculatorEngine.calculate(balanceParentheses(getCalculateText())));
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
 
         formatResultTextAfterType();
@@ -1986,13 +1988,13 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void ClipboardAction(final String c) {
-        final String mode;
+        String mode = null;
         try {
             mode = dataManager.getJSONSettingsData("eNotation", getApplicationContext()).getString("value");
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
-        if (mode.equals("false")) {
+        if (mode != null && mode.equals("false")) {
             ClipboardManager clipboardManager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
             switch (c) {
                 case "MC": {
@@ -2060,7 +2062,7 @@ public class MainActivity extends AppCompatActivity {
                 setResultText(CalculatorEngine.calculate(balanceParentheses(getCalculateText())));
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
 
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) findViewById(R.id.calculate_scrollview).getLayoutParams();
@@ -2153,7 +2155,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
 
         formatResultTextAfterType();
@@ -2261,7 +2263,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
 
         formatResultTextAfterType();
@@ -2312,7 +2314,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
 
         formatResultTextAfterType();
@@ -2342,7 +2344,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
 
         formatResultTextAfterType();
@@ -2489,7 +2491,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
 
         formatResultTextAfterType();
@@ -2522,7 +2524,7 @@ public class MainActivity extends AppCompatActivity {
                 findViewById(R.id.calculate_scrollview).setLayoutParams(layoutParams);
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
     }
 
@@ -2560,7 +2562,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
         return text;
     }
@@ -2585,12 +2587,12 @@ public class MainActivity extends AppCompatActivity {
         String finalInput = input;
         new Thread(() -> runOnUiThread(() -> {
             final String value;
-            final int old_value;
+            int old_value = 0;
             try {
                 value = dataManager.getHistoryData("historyTextViewNumber", context1).getString("value");
                 old_value = Integer.parseInt(dataManager.getHistoryData("historyTextViewNumber", context1).getString("value"));
             } catch (JSONException e) {
-                throw new RuntimeException(e);
+                Log.d(TAG, "Exception : " + e.getMessage());
             }
             final int new_value = old_value + 1;
 
@@ -2636,7 +2638,7 @@ public class MainActivity extends AppCompatActivity {
                 dataManager.saveToJSONSettings(String.valueOf(old_value + 1), addSpaceToOperators(balanceParentheses(calculate_text)), getApplicationContext());
                 //Log.i("Calculate", "historyTextViewNumber: " + dataManager.getHistoryData("historyTextViewNumber", getApplicationContext()).getString("value"));
             } catch (JSONException e) {
-                throw new RuntimeException(e);
+                Log.d(TAG, "Exception : " + e.getMessage());
             }
         })).start();
     }
@@ -2684,8 +2686,7 @@ public class MainActivity extends AppCompatActivity {
         // Get the result text
         String text = getResultText();
 
-        Log.d("formatResultTextAfterType", "formatResultTextAfterType: "+ text);
-
+        Log.d("formatResultTextAfterType", "formatResultTextAfterType: " + text);
 
 
         // Check if result text is not null
@@ -2731,7 +2732,7 @@ public class MainActivity extends AppCompatActivity {
                     if (isNegative) {
                         formattedNumber = "-" + formattedNumber;
                     }
-                    Log.d("formatResultTextAfterType", "formatResultTextAfterType final check on sici: "+ formattedNumber.replace("E", "e"));
+                    Log.d("formatResultTextAfterType", "formatResultTextAfterType final check on sici: " + formattedNumber.replace("E", "e"));
                     setResultText(formattedNumber.replace("E", "e"));
 
 
@@ -2756,7 +2757,7 @@ public class MainActivity extends AppCompatActivity {
                 result2 = "";
             }
 
-            Log.d("formatResultTextAfterType", "result2: "+ result2);
+            Log.d("formatResultTextAfterType", "result2: " + result2);
             // Check for invalid input
             if (!isInvalidInput(getResultText())) {
                 // Format the integral part using DecimalFormat
@@ -2773,7 +2774,7 @@ public class MainActivity extends AppCompatActivity {
                     String formattedNumber1 = decimalFormat.format(bigDecimalResult1);
 
                     // Set the result text with formatted numbers
-                    Log.d("formatResultTextAfterType", "setResultText: "+ (isNegative ? "-" : "") + formattedNumber1 + result2);
+                    Log.d("formatResultTextAfterType", "setResultText: " + (isNegative ? "-" : "") + formattedNumber1 + result2);
                     setResultText((isNegative ? "-" : "") + formattedNumber1 + result2);
                 } catch (NumberFormatException e) {
                     // Handle invalid number format in the integral part
@@ -2814,8 +2815,9 @@ public class MainActivity extends AppCompatActivity {
         try {
             return Boolean.parseBoolean(dataManager.getJSONSettingsData("isNotation", getApplicationContext()).getString("value"));
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
+        return false;
     }
 
     public void setRotateOperator(final boolean rotate) {
@@ -2824,7 +2826,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             Log.i("setRotateOperator", "rotate_op: '" + dataManager.getJSONSettingsData("rotate_op", getApplicationContext()).getString("value") + "'");
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+              Log.d(TAG, "Exception : " + e.getMessage());
         }
         */
     }
@@ -2834,18 +2836,20 @@ public class MainActivity extends AppCompatActivity {
             //Log.i("setRotateOperator", "rotate_op: '" + dataManager.getJSONSettingsData("rotate_op", getApplicationContext()) + "'");
             return Boolean.parseBoolean(dataManager.getJSONSettingsData("rotate_op", getApplicationContext()).getString("value"));
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
+        return false;
     }
 
     public String getLastOp() {
-        final String last_op;
+        String last_op = "";
         try {
             last_op = dataManager.getJSONSettingsData("lastop", getApplicationContext()).getString("value");
+            return last_op.replace("*", "×").replace("/", "÷");
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
-        return last_op.replace("*", "×").replace("/", "÷");
+        return last_op;
     }
 
     public void setLastOp(final String s) {
@@ -2854,17 +2858,17 @@ public class MainActivity extends AppCompatActivity {
         try {
             Log.i("setLastOp", "lastOp: " + dataManager.getJSONSettingsData("lastop", getApplicationContext()).getString("value"));
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+              Log.d(TAG, "Exception : " + e.getMessage());
         }
         */
     }
 
     public boolean getRemoveValue() {
-        final String value;
+         String value = "";
         try {
             value = dataManager.getJSONSettingsData("removeValue", getApplicationContext()).getString("value");
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
         dataManager.saveToJSONSettings("removeValue", "false", getApplicationContext());
         return value.equals("true");
@@ -2876,7 +2880,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             Log.i("setRemoveValue", "removeValue: " + dataManager.getJSONSettingsData("removeValue", getApplicationContext()).getString("value"));
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+              Log.d(TAG, "Exception : " + e.getMessage());
         }
         */
     }
@@ -2887,7 +2891,7 @@ public class MainActivity extends AppCompatActivity {
         dataManager.saveToJSONSettings("lastnumber", last_number, getApplicationContext());
         //Log.i("setLastNumber", "lastNumber: " + dataManager.getJSONSettingsData("lastnumber", getApplicationContext()));
         //} catch (JSONException e) {
-        //    throw new RuntimeException(e);
+        //      Log.d(TAG, "Exception : " + e.getMessage());
         //}
     }
 
@@ -2897,8 +2901,9 @@ public class MainActivity extends AppCompatActivity {
             dataManager.saveToJSONSettings("lastnumber", "0", getApplicationContext());
             return last_number;
         } catch (JSONException e) {
-            throw new RuntimeException(e);
+            Log.d(TAG, "Exception : " + e.getMessage());
         }
+        return null;
     }
 
     public String getResultText() {
@@ -2920,7 +2925,7 @@ public class MainActivity extends AppCompatActivity {
     public void setResultText(final String s) {
         TextView resulttext = findViewById(R.id.result_label);
         if (resulttext != null) {
-            Log.d("calculate", "setResultText: "+ s);
+            Log.d("calculate", "setResultText: " + s);
             resulttext.setText(s);
             scrollToEnd(findViewById(R.id.result_scrollview));
         }
